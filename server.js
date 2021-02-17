@@ -11,6 +11,9 @@ APP.use(CORS());
 APP.use(EXPRESS.urlencoded({ extended: false }));
 APP.use(EXPRESS.json());
 
+// connect bounties #13
+APP.use('/bounties', require('./controllers/bounties'));
+// APP.use('/urlPrefix', require('./controllers/fileToImport'))
 
 // port setting #4
 APP.listen(process.env.PORT || 3000, () => {
