@@ -66,6 +66,18 @@ ROUTER.put('/:id', (req, res) => {
     // check Insomnia #25
 
 // DELETE '/:id' - delete one bounty #18
+ROUTER.delete('/:id', (req, res) => {
+    DB.Bounty.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.status(204).send({ message: 'Bounty Deleted' });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).send({ message: 'Error in deleting'});
+    });
+});
+
+    // check Insomnia #26
 
 // export #12
 module.exports = ROUTER;
